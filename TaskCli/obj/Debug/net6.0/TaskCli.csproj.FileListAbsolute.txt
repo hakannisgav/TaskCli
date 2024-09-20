@@ -1,0 +1,4 @@
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.AssemblyInfoInputs.cache
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.AssemblyInfo.cs
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.csproj.CoreCompileInputs.cache
