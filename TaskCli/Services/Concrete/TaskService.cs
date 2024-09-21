@@ -1,7 +1,8 @@
-﻿using System.Text.Json;
+﻿using System.Runtime.InteropServices;
+using System.Text.Json;
 using Task = TaskCli.Models.Task;
 
-namespace TaskCli.Services;
+namespace TaskCli.Services.Concrete;
 
 public class TaskService : ITaskService
 {
@@ -10,26 +11,26 @@ public class TaskService : ITaskService
 
     public TaskService(List<Task> tasks)
     {
-        _tasks = tasks;
+        _tasks = LoadTasks();
     }
 
     //Add new Tasks in Json File.
-    public void AddTask(string description)
+    public void AddTask(string description, string status = "to-do")
     {
         try
         {
-            var newTask = new Task(description)
+            var newTask = new Task(description, status)
             {
                 Id = Guid.NewGuid(),
                 CreatedAt = DateTime.Now,
-                Status = "To-do",
+                Status = status.ToLower(),
                 UpdatedAt = null
             };
             _tasks.Add(newTask);
             SaveTasks();
-            Console.WriteLine($"Task added successfully (ID: {newTask.Id}");
+            Console.WriteLine($"Task added successfully (ID: {newTask.Id})");
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine($"Task can not added. Check Information Please!");
             throw;
@@ -43,12 +44,12 @@ public class TaskService : ITaskService
         {
             var task = _tasks.FirstOrDefault(x => x.Id == id);
             task.Description = newDescription;
-            task.Status = status;
+            task.Status = status.ToLower();
             task.UpdatedAt = DateTime.Now;
             SaveTasks();
             Console.WriteLine("Task updated successfully.");
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine($"Task with ID {id} not found.");
             throw;
@@ -65,7 +66,7 @@ public class TaskService : ITaskService
             SaveTasks();
             Console.WriteLine($"Task deleted successfully.");
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine($"Task with ID {id} not found.");
             throw;
@@ -73,35 +74,66 @@ public class TaskService : ITaskService
     }
 
     //In the following cases, it loads the tasks from the JSON File. If there is no file, it creates a new list from scratch.
-    public List<Task> GetAllTask()
-    {
-        if (!File.Exists(FileName))
-        {
-            return new List<Task>();
-        }
-
-        var json = File.ReadAllText(FileName);
-        return JsonSerializer.Deserialize<List<Task>>(json) ?? new List<Task>();
-    }
-
-    //Get tasks by status value.
-    public List<Task> GetAllTaskByStatus(string status)
+    public void GetAllTask()
     {
         try
         {
             var json = File.ReadAllText(FileName);
-            return JsonSerializer.Deserialize<List<Task>>(json).FindAll(x => x.Status == status).ToList();
+            var tasks = JsonSerializer.Deserialize<List<Task>>(json) ?? new List<Task>();
+            foreach (var task in tasks)
+            {
+                Console.WriteLine(task);
+            }
         }
-        catch (Exception e)
+        catch
+        {
+            Console.WriteLine($"File Not Found.");
+            throw;
+        }
+    }
+
+    //Get tasks by status value.
+    public void GetAllTaskByStatus(string status)
+    {
+        try
+        {
+            var json = File.ReadAllText(FileName);
+            var tasks = JsonSerializer.Deserialize<List<Task>>(json)?.FindAll(x => x.Status == status).ToList() ??
+                        new List<Task>();
+            foreach (var task in tasks)
+            {
+                Console.WriteLine(task);
+            }
+        }
+        catch
         {
             Console.WriteLine("File not found or you dont have any tasks this status.");
             throw;
         }
     }
 
+    //Write last tasks to file.
     public void SaveTasks()
     {
         var json = JsonSerializer.Serialize(_tasks, new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(FileName, json);
+    }
+    
+    //LoadTasks for App
+    private List<Task> LoadTasks()
+    {
+        try
+        {
+            if (File.Exists(FileName))
+            {
+                var json = File.ReadAllText(FileName);
+                return JsonSerializer.Deserialize<List<Task>>(json) ?? new List<Task>();
+            }
+        }
+        catch
+        {
+            Console.WriteLine("Error reading the task file.");
+        }
+        return new List<Task>();
     }
 }
