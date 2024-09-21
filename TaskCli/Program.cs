@@ -1,4 +1,5 @@
 ﻿using TaskCli.Services;
+using TaskCli.Services.Concrete;
 using Task = TaskCli.Models.Task;
 
 var tasks = new List<Task>();
@@ -27,7 +28,7 @@ try
     switch (command)
     {
         case "add":
-            if (!(args.Length < 2)) taskManager.AddTask(args[1]);
+            if (!(args.Length < 3)) taskManager.AddTask(args[1], args[2]);
             break;
         case "update":
             if (!(args.Length < 4)) taskManager.UpdateTask(Guid.Parse(args[1]), args[2], args[3]);
@@ -36,11 +37,10 @@ try
             if (!(args.Length < 2)) taskManager.DeleteTask(Guid.Parse(args[1]));
             break;
         case "list":
-            taskManager.GetAllTask();
+            if (!(args.Length > 1)) taskManager.GetAllTask();
             break;
         case "list-by-status":
-            string status = args.Length > 1 ? args[1].ToLower() : null;
-            taskManager.GetAllTaskByStatus(status);
+            if(!(args.Length < 2)) taskManager.GetAllTaskByStatus(args[1]);
             break;
         default:
             ShowUsage();

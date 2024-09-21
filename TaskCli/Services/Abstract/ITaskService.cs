@@ -3,10 +3,10 @@ using Task = TaskCli.Models.Task;
 
 public interface ITaskService
 {
-    void AddTask(string description);
+    void AddTask(string description, string status);
     void UpdateTask(Guid id, string newDescription, string status);
     void DeleteTask(Guid id);
-    List<Task> GetAllTask();
-    List<Task> GetAllTaskByStatus(string status);
+    void GetAllTask();
+    void GetAllTaskByStatus(string status);
     void SaveTasks();
 }
