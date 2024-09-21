@@ -1,0 +1,23 @@
+[
+  {
+    "Id": "b27c9273-2d41-4336-9fc0-78452e62b700",
+    "Description": "Place it in the refrigerator",
+    "Status": "done",
+    "CreatedAt": "2024-09-21T11:48:11.5433607+03:00",
+    "UpdatedAt": "2024-09-21T11:56:56.3372643+03:00"
+  },
+  {
+    "Id": "61305b2e-447c-494c-8562-678cad838b86",
+    "Description": "Buy Grocies",
+    "Status": "to-do",
+    "CreatedAt": "2024-09-21T11:53:29.989711+03:00",
+    "UpdatedAt": null
+  },
+  {
+    "Id": "779625c5-2b7a-437e-8955-ac65bc0dcd86",
+    "Description": "Take a shower",
+    "Status": "to-do",
+    "CreatedAt": "2024-09-21T12:00:42.8316755+03:00",
+    "UpdatedAt": null
+  }
+]

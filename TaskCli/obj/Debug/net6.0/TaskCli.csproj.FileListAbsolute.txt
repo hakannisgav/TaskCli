@@ -2,3 +2,13 @@ C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli
 C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.AssemblyInfoInputs.cache
 C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.AssemblyInfo.cs
 C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.csproj.CoreCompileInputs.cache
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\bin\Debug\net6.0\TaskCli.exe
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\bin\Debug\net6.0\TaskCli.deps.json
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\bin\Debug\net6.0\TaskCli.runtimeconfig.json
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\bin\Debug\net6.0\TaskCli.dll
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\bin\Debug\net6.0\TaskCli.pdb
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.dll
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\refint\TaskCli.dll
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.pdb
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\TaskCli.genruntimeconfig.cache
+C:\Users\hakan\Desktop\Software\TaskCli\TaskCli\TaskCli\obj\Debug\net6.0\ref\TaskCli.dll
