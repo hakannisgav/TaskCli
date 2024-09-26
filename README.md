@@ -36,7 +36,7 @@ To add a new task, use the `add` command:
   
 
 ```bash
-task-cli  add  "Task Description"  "status"
+dotnet run  add  "Task Description"  "status"
 ```
 ### List Task
 
@@ -44,19 +44,19 @@ task-cli  add  "Task Description"  "status"
 
 To list tasks based on their status, use the `list` or `list-by-status` command. If no status is specified, it lists all tasks:
 ```bash
-task-cli list
-task-cli list-by-status "to-do"
+dotnet run list
+dotnet run list-by-status "to-do"
 ```
 ### Update Task
 
 To update the description and status of an existing task, use the `update` command:
 
 ```bash
-task-cli update <id> "New Task Description" "New Status"
+dotnet run update <id> "New Task Description" "New Status"
 ```
 ### Mark Task Status
 
 To delete a task, use the `delete` command:
 ```bash
-task-cli delete <id>
+dotnet run delete <id>
 ```
